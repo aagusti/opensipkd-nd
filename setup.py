@@ -14,7 +14,7 @@ requires=['pyramid >= 1.5.6, < 1.6a',
           'pyramid_debugtoolbar',
           'zope.sqlalchemy',          
           'waitress',
-          'ziggurat-foundations',
+          'ziggurat-foundations >= 0.5, < 0.6',
           'colander',
           'deform >= 2.0a2',
           'pyramid_chameleon',
@@ -24,6 +24,9 @@ requires=['pyramid >= 1.5.6, < 1.6a',
           'pytz',
           'paste',       
           'webhelpers',             
+          'pyJasper',
+          'sqlalchemy-datatables == 0.1.6',
+          'simplejson',
          ]
 
 if sys.argv[1:] and sys.argv[1] == 'develop-use-pip':
