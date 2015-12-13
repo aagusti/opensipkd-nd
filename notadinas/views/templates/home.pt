@@ -1,0 +1,26 @@
+<html metal:use-macro="load: base.pt">
+<div metal:fill-slot="content">
+
+<!-- Main component for a primary marketing message or call to action -->
+<div class="well">
+<h1>Nota Dinas</h1>
+<p><img src="/static/img/logo_kota_bogor.png" class="img-float img-thumbnail"/>
+Selamat datang di aplikasi <code>Manajemen Nota Dinas dan Disposisi</code>, Aplikasi ini menggunakan
+<a href="http://pylonsproject.org/">Pyramid</a> Web Framework dan 
+<a href="http://postgresql.org/">Postgresql</a> Database.</p>
+
+<p>Aplikasi <code>Manajemen Nota Dinas dan Disposisi</code> ini digunakan untuk mengelola surat masuk dan surat keluar yang digunakan pada dinas dengan mempunyai fitur utama :
+<br>
+<ul>
+   <li> Registrasi Surat Masuk</li>
+   <li> Registrasi Surat Keluar</li>
+</ul>
+</p>
+<p>Dalam hal ini surat masuk atau keluar hanya berupa attachment saja. Nota Dinas pada umumnya surat yang ditujukan kepada atasan dalam pekerjaan.  
+</p>
+<p>Disposisi adalah informasi, perintah atau tugas yang diterima oleh seseorang yang kemudian di delegasikan untuk pelaksanaannya kepada staf/bagian yang posisi jabatannya dibawahnya. 
+</p>
+</div><!--well-->
+
+</div>
+</html>

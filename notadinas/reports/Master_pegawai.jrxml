@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Master_pegawai" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="xPath">
+		<![CDATA[/surat]]>
+	</queryString>
+	<field name="pegawai_kd" class="java.lang.String">
+		<fieldDescription><![CDATA[pegawai_kd]]></fieldDescription>
+	</field>
+	<field name="pegawai_nm" class="java.lang.String">
+		<fieldDescription><![CDATA[pegawai_nm]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="user_nm" class="java.lang.String">
+		<fieldDescription><![CDATA[user_nm]]></fieldDescription>
+	</field>
+	<field name="jabatan_nm" class="java.lang.String">
+		<fieldDescription><![CDATA[jabatan_nm]]></fieldDescription>
+	</field>
+	<field name="unit_nm" class="java.lang.String">
+		<fieldDescription><![CDATA[unit_nm]]></fieldDescription>
+	</field>
+	<field name="handphone" class="java.lang.String">
+		<fieldDescription><![CDATA[handphone]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[alamat]]></fieldDescription>
+	</field>
+	<group name="pegawai_nm">
+		<groupExpression><![CDATA[$F{pegawai_nm}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="177" y="20" width="187" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Pegawai]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="0" width="187" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Dinas Pendapatan Daerah]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="183" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="555" height="183"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement/>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="10" width="66" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[NIP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="30" width="66" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="128" width="66" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Handphone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="10" width="7" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="30" width="7" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="128" width="7" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="96" y="10" width="171" height="20"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pegawai_kd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="30" width="445" height="20"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pegawai_nm}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="50" width="66" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Jabatan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="50" width="7" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="70" width="66" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Unit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="69" width="7" height="21"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="96" y="50" width="445" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{jabatan_nm}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="96" y="70" width="445" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{unit_nm}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="96" y="129" width="171" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{handphone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="90" width="66" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[User]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="89" width="7" height="21"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="96" y="90" width="445" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{user_nm}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="96" y="110" width="171" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="109" width="66" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="109" width="7" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="96" y="148" width="445" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="86" y="147" width="7" height="21"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="148" width="66" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="7" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="7" splitType="Stretch"/>
+	</summary>
+</jasperReport>

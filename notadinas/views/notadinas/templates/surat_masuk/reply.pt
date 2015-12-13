@@ -1,0 +1,657 @@
+<html metal:use-macro="load: ../base.pt">
+<div metal:fill-slot="content">
+<div class="col-md-8">
+    <!-- Form Surat ------------------------------------------------------------->
+    <div  class="panel panel-default">
+      <div class="panel-heading">
+          <h3 class="panel-title">${request.title}</h3>
+      </div>
+      <div class="panel-body">
+        <form id="myform" method="post" enctype="multipart/form-data" accept-charset="utf-8" class="form-horizontal">
+          <div tal:condition="'id' in form" style="display:none;">
+            <div tal:define="field form['id']">
+                ${structure:field.serialize()}
+            </div>
+          </div>
+          <div class="form-group">
+              <div tal:define="field form['surat_id']" style="display: none;">
+                    ${structure:field.serialize()}
+              </div>
+              <div tal:define="field form['surat_no']" id="item-${field.oid}">
+                  <label for="${field.oid}" class="control-label col-md-1" id="req-${field.oid}">
+                          ${field.title}</label>
+                  <div class="col-md-3">
+                     ${structure:field.serialize()}
+                      <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                         tal:repeat="error field.error.messages()">
+                         ${error}</p>
+                  </div>
+              </div>
+              <div tal:define="field form['surat_nm']" id="item-${field.oid}">
+                  <label for="${field.oid}" class="control-label col-md-1" id="req-${field.oid}">
+                          ${field.title}</label>
+                  <div class="col-md-7">
+                     ${structure:field.serialize()}
+                      <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                         tal:repeat="error field.error.messages()">
+                         ${error}</p>
+                  </div>
+              </div>
+              <div tal:define="field form['surat_ft']" id="item-${field.oid}">
+                  <label for="${field.oid}" class="control-label col-md-1" id="req-${field.oid}">
+                          ${field.title}</label>
+                  <div class="col-md-3">
+                     ${structure:field.serialize()}
+                      <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                         tal:repeat="error field.error.messages()">
+                         ${error}</p>
+                  </div>
+              </div>
+              <div tal:define="field form['surat_tgl']" id="item-${field.oid}">
+                  <label for="${field.oid}" class="control-label col-md-1" id="req-${field.oid}">
+                          ${field.title}</label>
+                  <div class="col-md-3">
+                     ${structure:field.serialize()}
+                      <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                         tal:repeat="error field.error.messages()">
+                         ${error}</p>
+                  </div>
+              </div>
+              <div tal:define="field form['surat_tgl1']" id="item-${field.oid}">
+                  <label for="${field.oid}" class="control-label col-md-1" id="req-${field.oid}">
+                          ${field.title}</label>
+                  <div class="col-md-3">
+                     ${structure:field.serialize()}
+                      <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                         tal:repeat="error field.error.messages()">
+                         ${error}</p>
+                  </div>
+              </div>
+              <script>
+                  // HeadofNama Surat
+                  $('#surat_nm').typeahead({
+                       "hint"     : true,
+                       "highlight": true,
+                       "minLength": 1,
+		      		   "limit"    : 10,
+                       "remote"   : "/notadinas/surat/hon_disposisi/act?term=%QUERY",
+                  },{
+                      "name"      : 'surat_nm',
+                      "displayKey": 'value',
+                  });
+              
+                  $('#surat_nm').bind('typeahead:selected', function(obj, datum, name) {      
+                      $('#surat_id').val(datum.id);    
+                      $('#surat_no').val(datum.no);
+                      $('#surat_ft').val(datum.from); 
+                      
+                      if(datum.tgl == 'None'){
+                          $('#surat_tgl').val('');
+                      }else{
+                          $('#surat_tgl').val(datum.tgl);
+                      }
+                      
+                      if(datum.tgl_t == 'None'){
+                          $('#surat_tgl1').val('');
+                      }else{
+                          $('#surat_tgl1').val(datum.tgl_t);
+                      }
+                  });
+                  
+                  // HeadofKode Surat
+                  $('#surat_no').typeahead({
+                       "hint"     : true,
+                       "highlight": true,
+                       "minLength": 1,
+		      		   "limit"    : 10,
+                       "remote"   : "/notadinas/surat/hok_disposisi/act?term=%QUERY",
+                  },{
+                      "name"      : 'surat_no',
+                      "displayKey": 'value',
+                  });
+              
+                  $('#surat_no').bind('typeahead:selected', function(obj, datum, name) {      
+                      $('#surat_id').val(datum.id);    
+                      $('#surat_nm').val(datum.nama);
+                      $('#surat_ft').val(datum.from); 
+                      
+                      if(datum.tgl == 'None'){
+                          $('#surat_tgl').val('');
+                      }else{
+                          $('#surat_tgl').val(datum.tgl);
+                      }
+                      
+                      if(datum.tgl_t == 'None'){
+                          $('#surat_tgl1').val('');
+                      }else{
+                          $('#surat_tgl1').val(datum.tgl_t);
+                      }
+                  });
+                  
+                  $("#surat_no").attr('readonly',true);
+                  $("#surat_nm").attr('readonly',true);
+                  $("#surat_ft").attr('readonly',true);
+                  $("#surat_tgl").attr('readonly',true);
+                  $("#surat_tgl1").attr('readonly',true);
+              </script>
+          </div>
+    	  <div class="form-group">
+              <div tal:define="field form['notes']" id="item-${field.oid}">
+                <label for="${field.oid}" class="control-label col-md-1" id="req-${field.oid}">
+                        ${field.title}</label>
+                <div class="col-md-11">
+                   ${structure:field.serialize()}
+                  <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                     tal:repeat="error field.error.messages()">
+                     ${error}</p>
+                </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <div tal:define="field form['tanggal']" id="item-${field.oid}">
+                <label for="${field.oid}" class="control-label col-md-1" id="req-${field.oid}">
+                        ${field.title}</label>
+                <div class="col-md-3">
+                   ${structure:field.serialize()}
+                  <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                     tal:repeat="error field.error.messages()">
+                     ${error}</p>
+                </div>
+              </div>
+              <div tal:define="field form['job_id']" style="display: none;">
+                    ${structure:field.serialize()}
+              </div>
+              <div tal:define="field form['job_nm']" id="item-${field.oid}">
+                  <label for="${field.oid}" class="control-label col-md-1" id="job_nm1">
+                          ${field.title}</label>
+                  <div class="col-md-7">
+                     ${structure:field.serialize()}
+                      <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                         tal:repeat="error field.error.messages()">
+                         ${error}</p>
+                  </div>
+              </div>
+              <script>
+                  // HeadofNama Surat
+                  $('#job_nm').typeahead({
+                       "hint"     : true,
+                       "highlight": true,
+                       "minLength": 1,
+		      		   "limit"    : 10,
+                       "remote"   : "/notadinas/job/hon_disposisi/act?term=%QUERY",
+                  },{
+                      "name"      : 'job_nm',
+                      "displayKey": 'value',
+                  });
+              
+                  $('#job_nm').bind('typeahead:selected', function(obj, datum, name) {      
+                      $('#job_id').val(datum.id); 
+                  });
+              </script>
+          </div>
+    	  <div class="form-group">
+              <div tal:define="field form['status']" id="item-${field.oid}">
+                <label for="${field.oid}" class="control-label col-md-1" id="req-${field.oid}">
+                        ${field.title}</label>
+                <div class="col-md-3">
+                   ${structure:field.serialize()}
+                  <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                     tal:repeat="error field.error.messages()">
+                     ${error}</p>
+                </div>
+              </div>
+              <div tal:define="field form['need_feedback']" id="item-${field.oid}">
+                <label for="${field.oid}" class="control-label col-md-1" id="need_feedback1">
+                        ${field.title}</label>
+                <div class="col-md-3">
+                   ${structure:field.serialize()}
+                  <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                     tal:repeat="error field.error.messages()">
+                     ${error}</p>
+                </div>
+              </div>
+              <div tal:define="field form['date_feedback']" id="item-${field.oid}">
+                <label for="${field.oid}" class="control-label col-md-1" id="date_feedback1">
+                        ${field.title}</label>
+                <div class="col-md-3">
+                   ${structure:field.serialize()}
+                  <p id="error-${field.oid}" class="help-block" tal:condition="field.error"
+                     tal:repeat="error field.error.messages()">
+                     ${error}</p>
+                </div>
+              </div>
+          </div>
+            <script>
+            /*
+              $(document).ready(function(){
+                  //Hide All Kondisi
+                  $('#date_feedback').hide();
+                  $('#date_feedback1').hide();
+                  $("#need_feedback").hide();
+                  $("#need_feedback1").hide();
+                  $('#job_id').hide();
+                  $('#job_nm').hide();
+                  $('#job_nm1').hide();
+                  
+                  //Hide Show status saat dirubah
+                  var status = $("#status").val();
+                  if (status =='2'){
+                      $("#need_feedback").show();
+                      $("#need_feedback1").show();
+                      $('#job_nm').show();
+                      $('#job_nm1').show();
+                  }else{
+                      $('#job_nm').hide();
+                      $('#job_nm1').hide();
+                      $("#need_feedback").hide();
+                      $("#need_feedback1").hide();
+                      $('#date_feedback').hide();
+                      $('#date_feedback1').hide();
+                  }
+                  //Hide Show status saat pilih/ entry
+                  $("#status").change(function(){
+                  var status1 = $("#status").val();
+                  if(status1=='2'){
+                      $("#need_feedback").show();
+                      $("#need_feedback1").show();
+                      $('#job_nm').show();
+                      $('#job_nm1').show();
+                  }else{
+                      $('#job_nm').hide();
+                      $('#job_nm1').hide();
+                      $("#need_feedback").hide();
+                      $("#need_feedback1").hide();
+                      $('#date_feedback').hide();
+                      $('#date_feedback1').hide();
+                  }
+                  });
+                  
+                  //Hide Show Jenis saat edit
+                  var jenis = $("#need_feedback").val();
+                  if (jenis =='1'){
+                      $('#date_feedback').show();
+                      $('#date_feedback1').show();
+                  }else{
+                      $('#date_feedback').hide();
+                      $('#date_feedback1').hide();
+                  }
+              
+                  //Hide Show Jenis saat pilih/ entry
+                  $("#need_feedback").change(function(){
+                  var jenis1 = $("#need_feedback").val();
+                  if(jenis1=='1'){
+                      $('#date_feedback').show();
+                      $('#date_feedback1').show();
+                  }else{
+                      $('#date_feedback').hide();
+                      $('#date_feedback1').hide();
+                  }
+                  });
+              });
+              */
+            </script>
+    	  <br>
+          <div class="col-md-4">
+            <label class="control-label col-md-3"></label>
+            <button id="deformsave" name="simpan" type="submit" class="btn btn-primary "
+                  value="simpan">Balas</button>
+            <button id="deformcancel" name="batal" type="submit" class="btn btn-danger "
+                  value="batal">Batal</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Form Komentar ------------------------------------------------------------->
+    <div  class="panel panel-default">
+      <div class="panel-heading">
+          <h5 class="panel-title">Komentar</h5>
+      </div>
+      <div class="panel-body">
+        <table class="table table-bordered table-hover table-condensed" id="table1">
+          <thead>
+              <tr>
+                  <th>Index</th>
+                  <th>Disposisi ID</th>
+                  <th>Username</th>
+                  <th>Komentar</th>
+              </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table><br><hr>
+        <form method="post" id="detail" accept-charset="utf-8" class="form-horizontal" enctype="multipart/form-data">
+          <fieldset class="deformFormFieldset">
+            <!--Komentar------------------------------------------------------------->
+            <input id="disposisi_item_id" type="hidden" value="" name="disposisi_item_id">
+		    <div class="form-group">
+              <label class="control-label col-md-1">Komentar</label>
+              <div class="col-md-11">
+                 <input class="form-control" id="komentar" type="text" value="" name="komentar">
+              </div>
+            </div>
+            <div class="form-group">
+		      <label class="control-label col-md-1"></label>
+              <!--Button----------------------------------------------------------->
+              <div class="col-md-4">
+                  <button id="komen_add"    name="komen_add"    type="button" class="btn btn-primary " value="komen_add">Tambah</button>
+                  <button id="komen_cancel" name="komen_cancel" type="reset"  class="btn btn-danger "  value="komen_cancel">Batal</button>
+              </div> 
+            </div>            
+            <script>
+              // save
+              $('#komen_add').click(function () {
+                 $('#disposisi_item_id').val('');
+                 $('#detail').submit();
+              });
+                
+              $( "#detail" ).submit(function( event ) {
+                  var disposisi_id;
+                  var is_success;
+                  is_success = true;
+				  
+				  var kode1 = $('#disposisi_item_id').val();
+				  var kode2 = $('#komentar').val();
+				  
+                  disposisi_id = $('#id').val();
+                  if (!disposisi_id) {
+                      is_success = false;
+                      $("#errors").css('display', 'inline', 'important');
+                      $("#errors").html("<span class='glyphicon glyphicon-remove'></span> " + 'Simpan Dulu Headernya');
+                  }
+              
+                  if (is_success){
+                  $.ajax({
+                      type: "POST",
+                      url: "/notadinas/surat/inbox/item/"+disposisi_id+"/add",
+                      data: $('#detail').serialize(),
+                      success: function (html) {
+                      if (html.success == true) {
+                          $("#errors").html("<span class='glyphicon glyphicon-ok'></span> " + html.msg);
+                          $("#disposisi_item_id").val('');
+                          $("#komentar").val('');
+                          oTable.fnReloadAjax(oTableUrl);
+                      } else {
+                          $("#errors").css('display', 'inline', 'important');
+                          $("#errors").html("<span class='glyphicon glyphicon-remove'></span> " + html.msg);
+                          var a = html.msg;
+                          alert(a);
+                      }
+                      },
+                      beforeSend: function () {
+                          $("#errors").css('display', 'inline', 'important');
+                      }
+                  });
+                  }
+                  event.preventDefault();
+              });
+            </script>
+          </fieldset>
+         </form>  
+      </div> <!--panel-body-->
+    </div>
+</div>
+
+<div class="col-md-4">
+  <div class="panel panel-default" title="">
+    <div class="panel-heading"><h5 class="panel-title">File</h5></div>
+    <div class="panel-body">
+      <table id="grpTable1" class="table table-bordered table-hover table-condensed">
+          <thead>
+              <tr>
+                  <th>Index</th>
+                  <th>Surat ID</th>
+                  <th>File Attachment</th>
+                  <th>Size (Byte)</th>
+              </tr>
+          </thead>
+          <tbody>
+          </tbody>
+      </table><br>
+        <form method="post" id="detail2" accept-charset="utf-8" class="form-horizontal" enctype="multipart/form-data">
+          <fieldset class="deformFormFieldset">
+          </fieldset>
+         </form>
+    </div>
+    <div class="panel-heading">
+        <h6 class="panel-title">Catatan : Gunakanlah browser Google Chrome untuk mendownload file Ms.Office</h6>
+    </div>
+    <script>
+      var mGID1;
+      var mGID2;
+      var mGID3;
+      var oTableGrp1;
+      var iGPos1;
+	  var disposisi_id = $('#id').val();
+      var oTableGrpUrl1 = "/notadinas/surat/inbox/item/"+disposisi_id+"/act/file";
+      
+      $(document).ready(function () {
+        oTableGrp1 = $('#grpTable1').dataTable({
+          "sDom"           : '<"toolbar3">lfrtip',
+          "sAjaxSource"    : oTableGrpUrl1,
+          "bStateSave"     : true,
+          "bServerSide"    : true,
+          "bProcessing"    : true,
+          "bScrollCollapse": true,
+          "bSort"          : true,
+          "bInfo"          : false,
+          "bFilter"        : false,
+          "bAutoWidth"     : false,
+          "bPaginate"      : true,
+          "sPaginationType": "full_numbers",
+          "lengthMenu": [
+              [5, 10],
+              [5, 10]
+          ],
+         "aoColumnDefs": [{
+              "bSearchable": false,
+              "bVisible"   : false,
+              "aTargets"   : [0,1,4]
+          },{
+              "bSearchable": true,
+              "bSortable"  : false,
+              "aTargets"   : [2,3]
+          /*
+          },{
+              "aTargets"   : [2], //File attachment
+              "mRender"    : function (data, type, full) {
+                  return $("<div>").append($("<a/>").attr("href", data).text(data)).html();
+              }
+          */
+          }],
+          "aoColumns": [
+              null, 
+                {"sWidth": "50px"}, 
+                {"sWidth": "180px"},
+                {"sWidth": "60px", "sClass": "right"},
+          ],
+          "fnRowCallback": function (nRow, aData, iDisplayIndex) {
+              $(nRow).on("click", function (event) {
+                  if ($(this).hasClass('row_selected')) {
+                      /* mGID1 = '';
+                      $(this).removeClass('row_selected'); */
+                  } else {
+
+                      var data = oTableGrp1.fnGetData(this);
+                      mGID1 = data[0];
+
+                      oTableGrp1.$('tr.row_selected').removeClass('row_selected');
+                      $(this).addClass('row_selected');
+                  }
+              })
+          },
+        });
+          
+        var tb_arrayGrp1 = [
+          '<div class="btn-group pull-left">',
+          '	<button id="btn_file" class="btn btn btn-success" type="button">Download</button>',
+          '	&nbsp;',
+          '</div>',
+        ];
+
+        var tb3 = tb_arrayGrp1.join(' ');
+        $("div.toolbar3").html(tb3);
+
+        $('#grpTable1 tbody').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            } else {
+                iGPos1 = oTableGrp1.fnGetPosition(this);
+                var aData = oTableGrp1.fnGetData(iGPos1);
+                mGID1 = aData[0];
+                mGID2 = aData[4];
+                mGID3 = aData[1];
+                oTableGrp1.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+        });
+        
+        $("#btn_file").click(function () {
+            if (mGID1) window.location = "/notadinas/surat/inbox/item/"+disposisi_id+"/"+mGID1+"/download";
+            else alert('Pilih file yang akan di download');
+            
+            //url = '/files/'+mGID2
+            //window.open(url);
+            //return false;
+            //return $("<div>").append($("<a/>").attr("href", url).text(url)).html();
+        });
+      })
+    </script>
+  </div>
+</div> 
+
+    <!--Grid Komentar----------------------------------------------------------->
+    <script>
+      var mID;
+      var oTable;
+      var iPos;
+      var disposisi_id = $('#id').val();
+      var oTableUrl = "/notadinas/surat/inbox/item/"+disposisi_id+"/act/grid";
+      var tb_array = [
+          '<div class="btn-group pull-left">',
+          '<button id="btn_delete" class="btn btn btn-danger"  type="button">Hapus</button>',
+          '&nbsp;',
+          '</div>',
+      ];
+
+      var tb = tb_array.join(' ');
+
+      function formatNumber(n) {
+         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+         
+      $(document).ready(function () {
+        oTable = $('#table1').dataTable({
+            "sAjaxSource"    : oTableUrl,
+            "bStateSave"     : true,
+            "bServerSide"    : true,
+            "bProcessing"    : true,           
+            "sDom"           : '<"toolbar">lfrtip',
+            "bScrollCollapse": true,
+            "bSort"          : true,
+            "bInfo"          : false,
+            "bFilter"        : false,
+            "bAutoWidth"     : false,
+            "bPaginate"      : true,
+            "sPaginationType": "full_numbers",
+
+            "lengthMenu": [
+                [5, 10],
+                [5, 10]
+            ],
+            "aoColumnDefs": [{
+                "bSearchable": false,
+                "bVisible"   : false,
+                "aTargets"   : [0,1]
+            },{
+                "bSearchable": true,
+                "bSortable"  : false,
+                "aTargets"   : [3]
+            },{
+                "bSearchable": false,
+                "bSortable"  : false,
+                "aTargets"   : [2]
+            }            
+            ],
+            "aoColumns": [
+                null, 
+                {"sWidth": "20px"}, 
+                {"sWidth": "30px"}, 
+                {"sWidth": "180px"},
+                
+            ],
+            "fnRowCallback": function (nRow, aData, iDisplayIndex) {
+                $(nRow).on("click", function (event) {
+                    if ($(this).hasClass('row_selected')) {
+                        /* mID = '';
+                        $(this).removeClass('row_selected'); */
+                    } else {
+
+                        var data = oTable.fnGetData(this);
+                        mID = data[0];
+
+                        $("#disposisi_item_id").val(data[0]);
+                        $("#komentar").val(data[3]);
+
+                        oTable.$('tr.row_selected').removeClass('row_selected');
+                        $(this).addClass('row_selected');
+                    }
+                })
+            },
+        });
+        
+		function formatNumber(n) {
+                 return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                 }
+				 
+        $("div.toolbar").html(tb);
+
+        $('#table1 tbody').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            } else {
+                iPos = oTable.fnGetPosition(this);
+                var aData = oTable.fnGetData(iPos);
+                mID = aData[0];
+                oTable.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+        });
+        /**********************************************************************/
+        $('#btn_delete').click(function () {
+            if (mID) {
+              if (confirm('Yakin dihapus?')==true){
+                $.ajax({
+                type: "POST",
+                url: "/notadinas/surat/inbox/item/"+$("#id").val()+"/"+mID+"/delete",
+                success: function (html) {
+                  if (html.success == true) {
+                    $("#errors").html("<span class='glyphicon glyphicon-ok'></span> " + html.msg);
+                    $("#disposisi_item_id").val('');
+                    $("#komentar").val('');
+
+                    oTable.fnReloadAjax(oTableUrl);
+                  } else {
+                    $("#errors").css('display', 'inline', 'important');
+                    $("#errors").html("<span class='glyphicon glyphicon-remove'></span> " + html.msg);
+                  }
+                },
+                beforeSend: function () {
+                  $("#errors").css('display', 'inline', 'important');
+                }
+                });
+              } else {
+                  alert('Silahkan pilih data yang akan di hapus');
+              }
+            }
+        });
+        
+        $("#btn_close").click(function () {
+            window.location = '/notadinas/surat/inbox';
+            return false;
+        });
+     });
+    </script>
+</div>
+</html>
+

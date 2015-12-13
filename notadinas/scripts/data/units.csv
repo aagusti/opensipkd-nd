@@ -1,0 +1,50 @@
+id,kode,nama,urusan_id,disabled,level_id
+1,"1.01.01","Dinas Pendidikan",4,0,3
+2,"1.02.01","Dinas Kesehatan",5,0,3
+3,"1.02.02","Rumah Sakit Umum Daerah",5,0,3
+4,"1.03.01","Dinas Bina Marga dan Pengairan",6,0,3
+5,"1.03.02","Dinas Bangunan dan Permukiman",6,0,3
+6,"1.03.03","Dinas Bina Marga dan Sumber Daya Air",6,0,3
+7,"1.04.01","Dinas Penanggulangan Bencana dan Bahaya Kebakaran",7,0,3
+8,"1.04.02","Dinas Cipta Karya",7,0,3
+9,"1.04.03","Badan Penanggulangan Bencana Daerah",7,0,3
+10,"1.05.01","Dinas Tata Ruang",8,0,3
+11,"1.06.01","Badan Perencanaan Pembangunan Daerah",9,0,3
+12,"1.07.01","Dinas Perhubungan, Komunikasi dan Informatika",10,0,3
+13,"1.07.02","Dinas Perhubungan",10,0,3
+14,"1.08.01","Badan Lingkungan Hidup Daerah",11,0,3
+15,"1.08.04","Dinas Kebersihan, Pertamanan dan Pemakaman",11,0,3
+16,"1.08.05","Dinas Kebersihan dan Pertamanan",11,0,3
+17,"1.08.06","Kantor Pemakaman Daerah",11,0,3
+18,"1.10.01","Dinas Kependudukan dan Catatan Sipil",13,0,3
+19,"1.10.02","Dinas Administrasi Kependudukan dan Pencatatan Sipil",13,0,3
+20,"1.10.03","Badan Kependudukan dan Keluarga Berencana Daerah",13,0,3
+21,"1.12.01","Badan KB dan Pemberdayaan Perempuan",15,0,3
+22,"1.13.01","Dinas Kesejahteraan Sosial",16,0,3
+23,"1.13.02","Badan Narkotika",16,0,3
+24,"1.14.01","Dinas Tenaga Kerja dan Transmigrasi",17,0,3
+25,"1.15.01","Dinas Koperasi dan UKM",18,0,3
+26,"1.16.01","Badan Penanaman Modal Daerah",19,0,3
+27,"1.18.01","Dinas Pemuda, Olah Raga, Kebudayaan dan Pariwisata",21,0,3
+28,"1.19.03","Satuan Polisi Pamong Praja",22,0,3
+29,"1.19.04","Kantor Kesatuan Bangsa dan Politik",22,0,3
+30,"1.20.01","DPRD",23,0,3
+31,"1.20.02","Bupati dan Wakil Bupati",23,0,3
+32,"1.20.03","Sekretariat Daerah",23,0,3
+33,"1.20.04","Sekretariat DPRD",23,0,3
+34,"1.20.05","Dinas Pendapatan Daerah",23,0,3
+35,"1.20.06","Inspektorat Kabupaten",23,0,3
+36,"1.20.07","Badan Pelayanan Perijinan Terpadu (BP2T)",23,0,3
+37,"1.20.08","Badan Kepegawaian Daerah",23,0,3
+38,"1.20.09","Badan Pengelola Keuangan dan Aset Daerah",23,0,3
+39,"1.20.46","Badan Kepegawaian, Pendidikan dan Pelatihan Daerah",23,0,3
+40,"1.20.47","Badan Penanaman Modal dan Pelayanan Terpadu Satu Pintu",23,0,3
+41,"1.21.01","Badan Ketahanan Pangan, Penyuluhan dan Pemberdayaan Masyarakat",24,0,3
+42,"1.22.01","Badan Pemberdayaan Masyarakat, Perempuan dan Pemerintahan Desa",25,0,3
+43,"1.24.01","Kantor Arsip Daerah",27,0,3
+44,"1.25.01","Dinas Komunikasi dan Informatika",28,0,3
+45,"1.26.01","Kantor Perpustakaan Daerah",29,0,3
+46,"2.01.01","Dinas Pertanian dan Peternakan",31,0,3
+47,"2.01.02","Dinas Pertanian, Peternakan dan Ketahanan Pangan",31,0,3
+48,"2.05.01","Dinas Perikanan dan Kelautan",35,0,3
+49,"2.07.01","Dinas Perindustrian dan Perdagangan",37,0,3

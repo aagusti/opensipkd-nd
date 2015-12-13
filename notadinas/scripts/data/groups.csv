@@ -1,0 +1,6 @@
+description,group_name,id,member_count
+"Group yang mengelola dan mengawasi keseluruhan data sistem.","Admin",1,0
+"Group untuk level atas.","Kepala Dinas",2,0
+"Group untuk level 2.","Kepala Bidang",3,0
+"Group untuk level 3.","Kepala Seksi",4,0
+"Group untuk staf-staf dibawah naungan level 3.","Staf Seksi",5,0
